@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode, type ElementType } from "react";
 
 import hero from "@/assets/hero.jpg";
 import morning from "@/assets/morning.jpg";
@@ -46,7 +46,7 @@ function Reveal({
   children: ReactNode;
   delay?: number;
   className?: string;
-  as?: keyof JSX.IntrinsicElements;
+  as?: ElementType;
 }) {
   const ref = useRef<HTMLElement>(null);
   const [shown, setShown] = useState(false);
