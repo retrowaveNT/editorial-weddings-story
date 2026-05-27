@@ -76,10 +76,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "description", content: "Эксклюзивная цифровая редакция нашего свадебного дня — фотографии, моменты и истории, бережно собранные в одном месте." },
       { name: "author", content: "A & D" },
       { property: "og:title", content: "A & D — Наш день. Наша история" },
-      { property: "og:description", content: "Эксклюзивная цифровая редакция нашего свадебного дня." },
+      { property: "og:description", content: "Эксклюзивная цифровая редакция нашего свадебного дня — фотографии, моменты и истории, бережно собранные в одном месте." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "A & D — Наш день. Наша история" },
+      { name: "twitter:description", content: "Эксклюзивная цифровая редакция нашего свадебного дня — фотографии, моменты и истории, бережно собранные в одном месте." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/de81deb8-211b-48e1-9f0d-4183b5f7c7fe/id-preview-12a572d1--f8de0413-5f7b-4861-9db8-16466056fb90.lovable.app-1779883192895.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/de81deb8-211b-48e1-9f0d-4183b5f7c7fe/id-preview-12a572d1--f8de0413-5f7b-4861-9db8-16466056fb90.lovable.app-1779883192895.png" },
     ],
     links: [
       {
