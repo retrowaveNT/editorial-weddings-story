@@ -707,64 +707,83 @@ function WeddingDay() {
 
 function FeaturedSpread() {
   return (
-    <section id="photo" className="py-24 md:py-36">
-      <div className="mx-auto max-w-[1400px] px-5 md:px-10">
-        <div className="grid md:grid-cols-12 gap-6 md:gap-10">
-          <div className="md:col-span-5 md:pt-12">
+    <section id="photo" className="py-32 md:py-56">
+      <div className="mx-auto max-w-[1500px] px-5 md:px-12">
+        {/* Magazine masthead */}
+        <div className="grid md:grid-cols-12 gap-8 md:gap-16 mb-20 md:mb-32">
+          <div className="md:col-span-5 md:col-start-2">
             <Reveal>
-              <p className="eyebrow mb-6">Editorial · Spread</p>
+              <p className="eyebrow mb-8">Editorial · Pause</p>
             </Reveal>
             <Reveal delay={100}>
-              <h2 className="display text-5xl md:text-7xl leading-[0.95] mb-6">
+              <h2 className="display text-5xl md:text-[6.5vw] leading-[0.95]">
                 Тишина
                 <br />
-                <span className="italic">между кадрами</span>
+                <span className="italic font-extralight">между</span>
+                <br />
+                кадрами<span className="text-gold">.</span>
               </h2>
             </Reveal>
-            <Reveal delay={180}>
-              <p className="text-foreground/70 leading-relaxed max-w-md">
-                Между официальными снимками всегда есть взгляд, которого никто
-                не заказывал. Здесь — несколько таких.
+          </div>
+          <div className="md:col-span-4 md:col-start-9 md:pt-10">
+            <Reveal delay={200}>
+              <p className="font-serif italic text-xl md:text-2xl leading-[1.5] text-foreground/75">
+                Между официальными снимками всегда есть взгляд,
+                которого никто не заказывал.
+              </p>
+              <div className="gold-line mt-10 w-16" />
+            </Reveal>
+          </div>
+        </div>
+
+        {/* Broken-grid editorial spread */}
+        <div className="grid grid-cols-12 gap-4 md:gap-8">
+          <Reveal className="col-span-12 md:col-span-7">
+            <figure className="relative">
+              <img
+                src={silent1}
+                alt="Тихий момент"
+                loading="lazy"
+                className="w-full aspect-[4/5] object-cover"
+              />
+              <figcaption className="eyebrow mt-4">Pl. 02 — Pause</figcaption>
+            </figure>
+          </Reveal>
+
+          <div className="col-span-12 md:col-span-4 md:col-start-9 flex flex-col gap-12 md:gap-24 md:pt-32">
+            <Reveal delay={150}>
+              <img
+                src={silent2}
+                alt="Деталь"
+                loading="lazy"
+                className="w-full aspect-[3/4] object-cover"
+              />
+            </Reveal>
+            <Reveal delay={250}>
+              <p className="font-serif italic text-2xl md:text-3xl leading-snug text-foreground/85">
+                «Не позируй, просто будь.»
               </p>
             </Reveal>
-            <Reveal delay={260}>
-              <div className="gold-line mt-10 w-24" />
-            </Reveal>
           </div>
-          <div className="md:col-span-7 grid grid-cols-6 gap-3 md:gap-5">
-            <Reveal className="col-span-4 row-span-2">
-              <img
-                src={bwPortrait}
-                alt="Чёрно-белый портрет"
-                loading="lazy"
-                className="w-full h-full object-cover aspect-[4/5]"
-              />
-            </Reveal>
-            <Reveal delay={120} className="col-span-2">
-              <img
-                src={rings}
-                alt="Кольца"
-                loading="lazy"
-                className="w-full h-full object-cover aspect-square"
-              />
-            </Reveal>
-            <Reveal delay={200} className="col-span-2">
-              <img
-                src={bouquet}
-                alt="Букет"
-                loading="lazy"
-                className="w-full h-full object-cover aspect-square"
-              />
-            </Reveal>
-            <Reveal delay={280} className="col-span-6">
-              <img
-                src={walk}
-                alt="Прогулка"
-                loading="lazy"
-                className="w-full h-full object-cover aspect-[16/9]"
-              />
-            </Reveal>
-          </div>
+        </div>
+
+        <div className="grid grid-cols-12 gap-4 md:gap-8 mt-12 md:mt-32">
+          <Reveal delay={80} className="col-span-12 md:col-span-5 md:col-start-2 md:pt-40">
+            <img
+              src={silent3}
+              alt="Свет"
+              loading="lazy"
+              className="w-full aspect-[3/4] object-cover"
+            />
+          </Reveal>
+          <Reveal delay={180} className="col-span-12 md:col-span-6">
+            <img
+              src={silent4}
+              alt="Эмоция"
+              loading="lazy"
+              className="w-full aspect-[5/4] object-cover"
+            />
+          </Reveal>
         </div>
       </div>
     </section>
