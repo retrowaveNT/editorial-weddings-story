@@ -387,8 +387,8 @@ function Hero() {
     <section id="top" className="relative pt-[88px]">
       <div className="mx-auto max-w-[1400px] px-5 md:px-10 pt-6 pb-2">
         <div className="flex items-center justify-between text-[10px] uppercase tracking-[0.32em] text-bronze">
-          <span>Vol. I — Issue 01</span>
-          <span className="hidden sm:inline">A Private Edition</span>
+          <span>Том I · Выпуск 01</span>
+          <span className="hidden sm:inline">Частное издание</span>
           <span>2026</span>
         </div>
         <div className="hairline mt-4" />
@@ -453,7 +453,7 @@ function Hero() {
                 className="w-full h-[68vh] md:h-[82vh] object-cover anim-ken"
               />
               <figcaption className="absolute bottom-4 left-4 right-4 flex items-end justify-between text-background mix-blend-difference text-[10px] uppercase tracking-[0.3em]">
-                <span>Pl. 01 — Portrait</span>
+                <span>Кадр 01 · Портрет</span>
                 <span>A &amp; D</span>
               </figcaption>
             </figure>
@@ -462,7 +462,7 @@ function Hero() {
           <Reveal delay={420}>
             <div className="hidden md:flex absolute -left-6 top-10 -rotate-90 origin-top-left items-center gap-3 text-[10px] uppercase tracking-[0.4em] text-bronze">
               <span className="w-10 h-px bg-bronze" />
-              The Wedding Edition
+              Свадебное издание
             </div>
           </Reveal>
         </div>
@@ -471,9 +471,9 @@ function Hero() {
       <div className="mx-auto max-w-[1400px] px-5 md:px-10 mt-10">
         <div className="hairline" />
         <div className="flex items-center justify-between py-4 text-[10px] uppercase tracking-[0.32em] text-foreground/60">
-          <span>Anna &amp; Daniel</span>
-          <span className="hidden md:inline">Photographed by The Studio</span>
-          <span>↓ Scroll</span>
+          <span>Анна и Даниил</span>
+          <span className="hidden md:inline">Фото — The Studio</span>
+          <span>↓ Листайте</span>
         </div>
       </div>
     </section>
@@ -837,7 +837,7 @@ function FeaturedSpread() {
         <div className="grid md:grid-cols-12 gap-8 md:gap-16 mb-20 md:mb-32">
           <div className="md:col-span-5 md:col-start-2">
             <Reveal>
-              <p className="eyebrow mb-8">Editorial · Pause</p>
+              <p className="eyebrow mb-8">Редакция · Пауза</p>
             </Reveal>
             <Reveal delay={100}>
               <h2 className="display text-5xl md:text-[6.5vw] leading-[0.95]">
@@ -870,7 +870,7 @@ function FeaturedSpread() {
                 loading="lazy"
                 className="w-full aspect-[4/5] object-cover"
               />
-              <figcaption className="eyebrow mt-4">Pl. 02 — Pause</figcaption>
+              <figcaption className="eyebrow mt-4">Кадр 02 · Пауза</figcaption>
             </figure>
           </Reveal>
 
@@ -959,7 +959,7 @@ function Video() {
             </button>
 
             <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between text-background text-[10px] uppercase tracking-[0.3em]">
-              <span>04:32 · The Film</span>
+              <span>04:32 · Фильм</span>
               <span>A &amp; D · 2026</span>
             </div>
           </div>
@@ -972,7 +972,7 @@ function Video() {
           >
             {playing ? "Пауза" : "Смотреть фильм"}
           </button>
-          <span className="eyebrow">Снято на 35mm · Color graded</span>
+          <span className="eyebrow">Снято на 35мм · Цветокоррекция</span>
         </div>
       </div>
     </section>
@@ -1082,7 +1082,7 @@ function Guests() {
               <button className="inline-flex items-center gap-3 bg-foreground text-background px-6 py-4 text-[11px] uppercase tracking-[0.3em] hover:bg-bronze transition-colors duration-500">
                 Скачать архив (4.2 GB)
               </button>
-              <span className="eyebrow">Доступно 30 дней</span>
+              <span className="eyebrow">Доступно всегда</span>
             </div>
           </div>
         </Reveal>
@@ -1108,7 +1108,7 @@ function ThankYou() {
       <div className="relative z-10 h-full flex flex-col items-center justify-between py-14 md:py-20 px-6 text-background text-center">
         <Reveal>
           <p className="eyebrow text-background/80" style={{ color: "rgba(255,250,240,0.7)" }}>
-            Finale · Pl. 30
+            Финал · Кадр 30
           </p>
         </Reveal>
 
