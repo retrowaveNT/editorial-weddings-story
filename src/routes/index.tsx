@@ -450,7 +450,7 @@ function Hero() {
                 alt="A & D — день свадьбы"
                 width={1280}
                 height={1600}
-                className="w-full h-[68vh] md:h-[82vh] object-cover anim-ken"
+                className="w-full h-[68vh] md:h-[82vh] object-cover object-[center_30%] anim-ken"
               />
               <figcaption className="absolute bottom-4 left-4 right-4 flex items-end justify-between text-background mix-blend-difference text-[10px] uppercase tracking-[0.3em]">
                 <span>Кадр 01 · Портрет</span>
@@ -1043,9 +1043,14 @@ function Wishes() {
 
         <Reveal delay={200}>
           <div className="mt-14 flex justify-center">
-            <button className="inline-flex items-center gap-3 border border-foreground px-7 py-4 text-[11px] uppercase tracking-[0.3em] hover:bg-foreground hover:text-background transition-colors duration-500">
+            <a
+              href="https://t.me/salyamgaray"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 border border-foreground px-7 py-4 text-[11px] uppercase tracking-[0.3em] hover:bg-foreground hover:text-background transition-colors duration-500"
+            >
               + Оставить пожелание
-            </button>
+            </a>
           </div>
         </Reveal>
       </div>
