@@ -813,12 +813,13 @@ function Video() {
         <Reveal delay={200}>
           <div className="relative group overflow-hidden shadow-[0_40px_80px_-40px_rgba(42,42,42,0.35)]">
             <img
-              src={film}
+              src={ceremony1}
               alt="Кадр свадебного фильма"
               loading="lazy"
-              className="w-full aspect-[16/10] md:aspect-[21/9] object-cover transition-transform duration-[2000ms] group-hover:scale-[1.04]"
+              className="w-full aspect-[16/10] md:aspect-[21/9] object-cover transition-transform duration-[2400ms] ease-out group-hover:scale-[1.04]"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-foreground/30 via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-foreground/55 via-foreground/10 to-foreground/30" />
+            <div className="absolute inset-0 ring-1 ring-inset ring-background/10" />
 
             <button
               onClick={() => setPlaying((p) => !p)}
