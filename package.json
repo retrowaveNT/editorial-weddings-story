@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite dev",
+    "prebuild": "bun install --frozen-lockfile",
     "build": "vite build",
     "build:dev": "vite build --mode development",
     "preview": "vite preview",
@@ -84,5 +85,6 @@
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.56.1",
     "vite": "^7.3.1"
-  }
+  },
+  "packageManager": "bun@1.3.4"
 }
