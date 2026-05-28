@@ -1,18 +1,36 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState, type ReactNode, type ElementType } from "react";
 
-import hero from "@/assets/hero.jpg";
-import morning from "@/assets/morning.jpg";
-import groom from "@/assets/groom.jpg";
-import ceremony from "@/assets/ceremony.jpg";
-import walk from "@/assets/walk.jpg";
-import banquet from "@/assets/banquet.jpg";
-import party from "@/assets/party.jpg";
-import rings from "@/assets/rings.jpg";
-import bouquet from "@/assets/bouquet.jpg";
-import bwPortrait from "@/assets/bw-portrait.jpg";
-import film from "@/assets/film.jpg";
-import finale from "@/assets/finale.jpg";
+import hero from "@/assets/photos/hero-main.jpg";
+import brideMorning1 from "@/assets/photos/bride-morning-01.jpg";
+import brideMorning2 from "@/assets/photos/bride-morning-02.jpg";
+import brideMorning3 from "@/assets/photos/bride-morning-03.jpg";
+import brideMorning4 from "@/assets/photos/bride-morning-04.jpg";
+import groomMorning1 from "@/assets/photos/groom-morning-01.jpg";
+import groomMorning2 from "@/assets/photos/groom-morning-02.jpg";
+import groomMorning3 from "@/assets/photos/groom-morning-03.jpg";
+import groomMorning4 from "@/assets/photos/groom-morning-04.jpg";
+import ceremony1 from "@/assets/photos/ceremony-01.jpg";
+import ceremony2 from "@/assets/photos/ceremony-02.jpg";
+import ceremony3 from "@/assets/photos/ceremony-03.jpg";
+import ceremony4 from "@/assets/photos/ceremony-04.jpg";
+import walk1 from "@/assets/photos/walk-01.jpg";
+import walk2 from "@/assets/photos/walk-02.jpg";
+import walk3 from "@/assets/photos/walk-03.jpg";
+import walk4 from "@/assets/photos/walk-04.jpg";
+import banquet1 from "@/assets/photos/banquet-01.jpg";
+import banquet2 from "@/assets/photos/banquet-02.jpg";
+import banquet3 from "@/assets/photos/banquet-03.jpg";
+import banquet4 from "@/assets/photos/banquet-04.jpg";
+import party1 from "@/assets/photos/party-01.jpg";
+import party2 from "@/assets/photos/party-02.jpg";
+import party3 from "@/assets/photos/party-03.jpg";
+import party4 from "@/assets/photos/party-04.jpg";
+import silent1 from "@/assets/photos/silent-01.jpg";
+import silent2 from "@/assets/photos/silent-02.jpg";
+import silent3 from "@/assets/photos/silent-03.jpg";
+import silent4 from "@/assets/photos/silent-04.jpg";
+import thankYou from "@/assets/photos/thank-you-01.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -149,10 +167,10 @@ const stages: Stage[] = [
       "Нежное утро, наполненное волнением и самыми тёплыми моментами.",
     count: "45 фото",
     images: [
-      { src: morning, alt: "Утро невесты", tall: true },
-      { src: bouquet, alt: "Букет невесты" },
-      { src: rings, alt: "Обручальные кольца" },
-      { src: bwPortrait, alt: "Портрет невесты", tall: true },
+      { src: brideMorning1, alt: "Утро невесты", tall: true },
+      { src: brideMorning2, alt: "Деталь" },
+      { src: brideMorning3, alt: "Сборы" },
+      { src: brideMorning4, alt: "Портрет невесты", tall: true },
     ],
   },
   {
@@ -164,9 +182,10 @@ const stages: Stage[] = [
       "Спокойствие, сосредоточенность и едва уловимая улыбка перед самым важным днём.",
     count: "28 фото",
     images: [
-      { src: groom, alt: "Сборы жениха", tall: true },
-      { src: rings, alt: "Кольцо" },
-      { src: bwPortrait, alt: "Чёрно-белый момент", tall: true },
+      { src: groomMorning1, alt: "Сборы жениха", tall: true },
+      { src: groomMorning2, alt: "Деталь костюма" },
+      { src: groomMorning3, alt: "Момент" },
+      { src: groomMorning4, alt: "Портрет", tall: true },
     ],
   },
   {
@@ -178,9 +197,10 @@ const stages: Stage[] = [
       "Слова, которые останутся с нами навсегда. Тишина, заполненная любовью.",
     count: "72 фото",
     images: [
-      { src: ceremony, alt: "Церемония", wide: true },
-      { src: bouquet, alt: "Цветы церемонии" },
-      { src: morning, alt: "Эмоция момента", tall: true },
+      { src: ceremony1, alt: "Церемония", wide: true },
+      { src: ceremony2, alt: "Гости" },
+      { src: ceremony3, alt: "Эмоция", tall: true },
+      { src: ceremony4, alt: "Кольца" },
     ],
   },
   {
@@ -191,8 +211,10 @@ const stages: Stage[] = [
     description: "Закат, поле, ветер в волосах и наш первый общий вечер.",
     count: "56 фото",
     images: [
-      { src: walk, alt: "Прогулка", tall: true },
-      { src: film, alt: "Закат", wide: true },
+      { src: walk1, alt: "Прогулка", tall: true },
+      { src: walk2, alt: "Закат", wide: true },
+      { src: walk3, alt: "Силуэты" },
+      { src: walk4, alt: "Поле", tall: true },
     ],
   },
   {
@@ -204,9 +226,10 @@ const stages: Stage[] = [
       "Слова близких, бокалы шампанского и сотни маленьких поводов улыбаться.",
     count: "94 фото",
     images: [
-      { src: banquet, alt: "Банкет", wide: true },
-      { src: bouquet, alt: "Цветы стола" },
-      { src: rings, alt: "Деталь", tall: true },
+      { src: banquet1, alt: "Банкет", wide: true },
+      { src: banquet2, alt: "Сервировка" },
+      { src: banquet3, alt: "Гости", tall: true },
+      { src: banquet4, alt: "Деталь" },
     ],
   },
   {
@@ -217,8 +240,10 @@ const stages: Stage[] = [
     description: "Первый танец, музыка до утра и наши люди вокруг.",
     count: "118 фото",
     images: [
-      { src: party, alt: "Вечеринка", wide: true },
-      { src: finale, alt: "Под люстрой", tall: true },
+      { src: party1, alt: "Вечеринка", wide: true },
+      { src: party2, alt: "Танцпол", tall: true },
+      { src: party3, alt: "Свет" },
+      { src: party4, alt: "Финал ночи" },
     ],
   },
 ];
@@ -682,64 +707,83 @@ function WeddingDay() {
 
 function FeaturedSpread() {
   return (
-    <section id="photo" className="py-24 md:py-36">
-      <div className="mx-auto max-w-[1400px] px-5 md:px-10">
-        <div className="grid md:grid-cols-12 gap-6 md:gap-10">
-          <div className="md:col-span-5 md:pt-12">
+    <section id="photo" className="py-32 md:py-56">
+      <div className="mx-auto max-w-[1500px] px-5 md:px-12">
+        {/* Magazine masthead */}
+        <div className="grid md:grid-cols-12 gap-8 md:gap-16 mb-20 md:mb-32">
+          <div className="md:col-span-5 md:col-start-2">
             <Reveal>
-              <p className="eyebrow mb-6">Editorial · Spread</p>
+              <p className="eyebrow mb-8">Editorial · Pause</p>
             </Reveal>
             <Reveal delay={100}>
-              <h2 className="display text-5xl md:text-7xl leading-[0.95] mb-6">
+              <h2 className="display text-5xl md:text-[6.5vw] leading-[0.95]">
                 Тишина
                 <br />
-                <span className="italic">между кадрами</span>
+                <span className="italic font-extralight">между</span>
+                <br />
+                кадрами<span className="text-gold">.</span>
               </h2>
             </Reveal>
-            <Reveal delay={180}>
-              <p className="text-foreground/70 leading-relaxed max-w-md">
-                Между официальными снимками всегда есть взгляд, которого никто
-                не заказывал. Здесь — несколько таких.
+          </div>
+          <div className="md:col-span-4 md:col-start-9 md:pt-10">
+            <Reveal delay={200}>
+              <p className="font-serif italic text-xl md:text-2xl leading-[1.5] text-foreground/75">
+                Между официальными снимками всегда есть взгляд,
+                которого никто не заказывал.
+              </p>
+              <div className="gold-line mt-10 w-16" />
+            </Reveal>
+          </div>
+        </div>
+
+        {/* Broken-grid editorial spread */}
+        <div className="grid grid-cols-12 gap-4 md:gap-8">
+          <Reveal className="col-span-12 md:col-span-7">
+            <figure className="relative">
+              <img
+                src={silent1}
+                alt="Тихий момент"
+                loading="lazy"
+                className="w-full aspect-[4/5] object-cover"
+              />
+              <figcaption className="eyebrow mt-4">Pl. 02 — Pause</figcaption>
+            </figure>
+          </Reveal>
+
+          <div className="col-span-12 md:col-span-4 md:col-start-9 flex flex-col gap-12 md:gap-24 md:pt-32">
+            <Reveal delay={150}>
+              <img
+                src={silent2}
+                alt="Деталь"
+                loading="lazy"
+                className="w-full aspect-[3/4] object-cover"
+              />
+            </Reveal>
+            <Reveal delay={250}>
+              <p className="font-serif italic text-2xl md:text-3xl leading-snug text-foreground/85">
+                «Не позируй, просто будь.»
               </p>
             </Reveal>
-            <Reveal delay={260}>
-              <div className="gold-line mt-10 w-24" />
-            </Reveal>
           </div>
-          <div className="md:col-span-7 grid grid-cols-6 gap-3 md:gap-5">
-            <Reveal className="col-span-4 row-span-2">
-              <img
-                src={bwPortrait}
-                alt="Чёрно-белый портрет"
-                loading="lazy"
-                className="w-full h-full object-cover aspect-[4/5]"
-              />
-            </Reveal>
-            <Reveal delay={120} className="col-span-2">
-              <img
-                src={rings}
-                alt="Кольца"
-                loading="lazy"
-                className="w-full h-full object-cover aspect-square"
-              />
-            </Reveal>
-            <Reveal delay={200} className="col-span-2">
-              <img
-                src={bouquet}
-                alt="Букет"
-                loading="lazy"
-                className="w-full h-full object-cover aspect-square"
-              />
-            </Reveal>
-            <Reveal delay={280} className="col-span-6">
-              <img
-                src={walk}
-                alt="Прогулка"
-                loading="lazy"
-                className="w-full h-full object-cover aspect-[16/9]"
-              />
-            </Reveal>
-          </div>
+        </div>
+
+        <div className="grid grid-cols-12 gap-4 md:gap-8 mt-12 md:mt-32">
+          <Reveal delay={80} className="col-span-12 md:col-span-5 md:col-start-2 md:pt-40">
+            <img
+              src={silent3}
+              alt="Свет"
+              loading="lazy"
+              className="w-full aspect-[3/4] object-cover"
+            />
+          </Reveal>
+          <Reveal delay={180} className="col-span-12 md:col-span-6">
+            <img
+              src={silent4}
+              alt="Эмоция"
+              loading="lazy"
+              className="w-full aspect-[5/4] object-cover"
+            />
+          </Reveal>
         </div>
       </div>
     </section>
@@ -769,12 +813,13 @@ function Video() {
         <Reveal delay={200}>
           <div className="relative group overflow-hidden shadow-[0_40px_80px_-40px_rgba(42,42,42,0.35)]">
             <img
-              src={film}
+              src={ceremony1}
               alt="Кадр свадебного фильма"
               loading="lazy"
-              className="w-full aspect-[16/10] md:aspect-[21/9] object-cover transition-transform duration-[2000ms] group-hover:scale-[1.04]"
+              className="w-full aspect-[16/10] md:aspect-[21/9] object-cover transition-transform duration-[2400ms] ease-out group-hover:scale-[1.04]"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-foreground/30 via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-foreground/55 via-foreground/10 to-foreground/30" />
+            <div className="absolute inset-0 ring-1 ring-inset ring-background/10" />
 
             <button
               onClick={() => setPlaying((p) => !p)}
@@ -837,26 +882,39 @@ function Wishes() {
           </div>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-5 md:gap-6">
-          {wishes.map((w, i) => (
-            <Reveal key={w.name} delay={i * 80}>
-              <article className="group h-full border border-border bg-background p-7 md:p-10 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_30px_60px_-40px_rgba(42,42,42,0.4)]">
-                <div className="flex items-center gap-4 mb-6">
-                  <span className="w-12 h-12 rounded-full bg-secondary text-secondary-foreground display text-2xl flex items-center justify-center">
-                    {w.initial}
-                  </span>
-                  <div>
-                    <div className="font-serif text-xl">{w.name}</div>
-                    <div className="eyebrow mt-1">{w.date}</div>
+        <div className="grid md:grid-cols-12 gap-8 md:gap-10">
+          {wishes.map((w, i) => {
+            const layouts = [
+              "md:col-span-7 md:col-start-1 md:-rotate-[0.6deg] md:mt-0",
+              "md:col-span-5 md:col-start-8 md:rotate-[0.9deg] md:mt-20",
+              "md:col-span-5 md:col-start-2 md:rotate-[0.4deg] md:-mt-6",
+              "md:col-span-6 md:col-start-7 md:-rotate-[0.7deg] md:mt-10",
+            ];
+            const tones = [
+              "bg-[#FBF6EE]",
+              "bg-[#F4ECDF]",
+              "bg-[#F8F2E8]",
+              "bg-[#F1E8D8]",
+            ];
+            return (
+              <Reveal key={w.name} delay={i * 110} className={layouts[i % layouts.length]}>
+                <article
+                  className={`relative ${tones[i % tones.length]} p-8 md:p-12 transition-transform duration-700 ease-out hover:rotate-0 hover:-translate-y-1 shadow-[0_30px_60px_-40px_rgba(60,40,20,0.25)]`}
+                  style={{ boxShadow: "0 1px 0 rgba(0,0,0,0.04), 0 30px 60px -40px rgba(60,40,20,0.25)" }}
+                >
+                  <div className="absolute -top-3 left-8 w-16 h-3 bg-foreground/10 rotate-[-2deg]" aria-hidden />
+                  <div className="text-5xl md:text-6xl font-serif text-gold leading-none mb-3 -ml-1">“</div>
+                  <p className="font-serif italic text-xl md:text-2xl leading-[1.45] text-foreground/85">
+                    {w.text}
+                  </p>
+                  <div className="mt-8 flex items-baseline justify-between gap-6 border-t border-foreground/10 pt-4">
+                    <span className="font-serif text-lg md:text-xl">— {w.name}</span>
+                    <span className="eyebrow">{w.date}</span>
                   </div>
-                </div>
-                <div className="text-3xl text-gold leading-none mb-2">“</div>
-                <p className="font-serif italic text-lg md:text-xl leading-snug text-foreground/85">
-                  {w.text}
-                </p>
-              </article>
-            </Reveal>
-          ))}
+                </article>
+              </Reveal>
+            );
+          })}
         </div>
 
         <Reveal delay={200}>
@@ -913,50 +971,48 @@ function Guests() {
 
 function ThankYou() {
   return (
-    <section className="py-28 md:py-44 bg-card/40 relative overflow-hidden">
-      <div className="mx-auto max-w-[1400px] px-5 md:px-10 text-center">
+    <section className="relative h-[100svh] min-h-[640px] w-full overflow-hidden">
+      <img
+        src={thankYou}
+        alt="Финальный кадр свадебного дня"
+        className="absolute inset-0 w-full h-full object-cover anim-ken"
+      />
+      {/* warm cinematic veil */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/15 to-black/60" />
+      <div className="absolute inset-0 grain pointer-events-none" />
+
+      <div className="relative z-10 h-full flex flex-col items-center justify-between py-14 md:py-20 px-6 text-background text-center">
         <Reveal>
-          <p className="eyebrow mb-8">Finale</p>
-        </Reveal>
-        <Reveal delay={100}>
-          <h2 className="display text-[12vw] sm:text-[8vw] md:text-[6.5vw] leading-[0.9]">
-            Спасибо,
-            <br />
-            что были
-            <br />
-            <span className="italic">с нами</span>
-            <span className="text-gold">.</span>
-          </h2>
-        </Reveal>
-        <Reveal delay={250}>
-          <p className="mt-10 max-w-xl mx-auto text-foreground/75 leading-relaxed">
-            Этот день навсегда останется в нашем сердце. Каждый взгляд, каждое
-            объятие — всё благодаря вам.
+          <p className="eyebrow text-background/80" style={{ color: "rgba(255,250,240,0.7)" }}>
+            Finale · Pl. 30
           </p>
         </Reveal>
 
-        <div className="mt-16 grid grid-cols-2 gap-4 md:gap-6 max-w-3xl mx-auto">
-          <Reveal>
-            <img
-              src={finale}
-              alt="Финальный кадр"
-              loading="lazy"
-              className="w-full aspect-[3/4] object-cover"
-            />
-          </Reveal>
+        <div className="flex flex-col items-center gap-10 max-w-3xl">
           <Reveal delay={150}>
-            <img
-              src={walk}
-              alt="Прогулка"
-              loading="lazy"
-              className="w-full aspect-[3/4] object-cover mt-10 md:mt-16"
-            />
+            <span className="block w-12 h-px bg-background/60 mx-auto" />
+          </Reveal>
+          <Reveal delay={200}>
+            <h2 className="display text-5xl sm:text-6xl md:text-[7.5vw] leading-[0.95] text-background">
+              Спасибо,
+              <br />
+              <span className="italic font-extralight">что были с нами</span>
+            </h2>
+          </Reveal>
+          <Reveal delay={350}>
+            <p className="font-serif italic text-lg md:text-2xl text-background/85 max-w-xl leading-relaxed">
+              За каждый взгляд, объятие и тихое слово —
+              этот день останется с нами навсегда.
+            </p>
+          </Reveal>
+          <Reveal delay={500}>
+            <span className="block w-12 h-px bg-background/60 mx-auto" />
           </Reveal>
         </div>
 
-        <Reveal delay={300}>
-          <p className="display italic text-2xl md:text-3xl mt-16 text-foreground/80">
-            — A &amp; D
+        <Reveal delay={600}>
+          <p className="display italic text-2xl md:text-3xl tracking-[0.2em] text-background/90">
+            — A &amp; D —
           </p>
         </Reveal>
       </div>
