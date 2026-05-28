@@ -1147,28 +1147,11 @@ function ThankYou() {
 /* --------------------------------- Footer --------------------------------- */
 
 function Footer() {
-  const Icon = ({ d }: { d: string }) => (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round">
-      <path d={d} />
-    </svg>
-  );
   return (
     <footer className="border-t border-border py-10">
-      <div className="mx-auto max-w-[1400px] px-5 md:px-10 flex flex-col md:flex-row items-center justify-between gap-6">
-        <div className="display text-lg tracking-[0.3em]">A · D</div>
-
-        <div className="flex items-center gap-6 text-foreground/70">
-          <a href="#" aria-label="Instagram" className="hover:text-foreground transition-colors">
-            <Icon d="M3 7.5A4.5 4.5 0 0 1 7.5 3h9A4.5 4.5 0 0 1 21 7.5v9A4.5 4.5 0 0 1 16.5 21h-9A4.5 4.5 0 0 1 3 16.5v-9zM12 8.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zm5-.5h.01" />
-          </a>
-          <a href="#" aria-label="Telegram" className="hover:text-foreground transition-colors">
-            <Icon d="M22 3L2 11l6 2 2 6 4-4 6 5 2-17z" />
-          </a>
-          <a href="#" aria-label="WhatsApp" className="hover:text-foreground transition-colors">
-            <Icon d="M3 21l1.6-4.6A8.5 8.5 0 1 1 21 12.5 8.5 8.5 0 0 1 8.6 19.4L3 21zM8 10c.5 2 2 3.5 4 4l1.5-1.5L16 14c-.5 1.5-2 2-3.5 1.8C9.5 15.3 7 12.5 6.5 9.5 6.3 8 6.8 6.5 8.3 6L10 8.5 8 10z" />
-          </a>
-        </div>
-
+      <div className="mx-auto max-w-[1400px] px-5 md:px-10 flex flex-col md:flex-row items-center justify-between gap-4 text-foreground/70">
+        <div className="display text-lg tracking-[0.3em] text-foreground">A · D</div>
+        <div className="eyebrow">20 августа · 2026</div>
         <div className="eyebrow">Сделано с любовью</div>
       </div>
     </footer>
