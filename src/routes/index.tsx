@@ -882,26 +882,39 @@ function Wishes() {
           </div>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-5 md:gap-6">
-          {wishes.map((w, i) => (
-            <Reveal key={w.name} delay={i * 80}>
-              <article className="group h-full border border-border bg-background p-7 md:p-10 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_30px_60px_-40px_rgba(42,42,42,0.4)]">
-                <div className="flex items-center gap-4 mb-6">
-                  <span className="w-12 h-12 rounded-full bg-secondary text-secondary-foreground display text-2xl flex items-center justify-center">
-                    {w.initial}
-                  </span>
-                  <div>
-                    <div className="font-serif text-xl">{w.name}</div>
-                    <div className="eyebrow mt-1">{w.date}</div>
+        <div className="grid md:grid-cols-12 gap-8 md:gap-10">
+          {wishes.map((w, i) => {
+            const layouts = [
+              "md:col-span-7 md:col-start-1 md:-rotate-[0.6deg] md:mt-0",
+              "md:col-span-5 md:col-start-8 md:rotate-[0.9deg] md:mt-20",
+              "md:col-span-5 md:col-start-2 md:rotate-[0.4deg] md:-mt-6",
+              "md:col-span-6 md:col-start-7 md:-rotate-[0.7deg] md:mt-10",
+            ];
+            const tones = [
+              "bg-[#FBF6EE]",
+              "bg-[#F4ECDF]",
+              "bg-[#F8F2E8]",
+              "bg-[#F1E8D8]",
+            ];
+            return (
+              <Reveal key={w.name} delay={i * 110} className={layouts[i % layouts.length]}>
+                <article
+                  className={`relative ${tones[i % tones.length]} p-8 md:p-12 transition-transform duration-700 ease-out hover:rotate-0 hover:-translate-y-1 shadow-[0_30px_60px_-40px_rgba(60,40,20,0.25)]`}
+                  style={{ boxShadow: "0 1px 0 rgba(0,0,0,0.04), 0 30px 60px -40px rgba(60,40,20,0.25)" }}
+                >
+                  <div className="absolute -top-3 left-8 w-16 h-3 bg-foreground/10 rotate-[-2deg]" aria-hidden />
+                  <div className="text-5xl md:text-6xl font-serif text-gold leading-none mb-3 -ml-1">“</div>
+                  <p className="font-serif italic text-xl md:text-2xl leading-[1.45] text-foreground/85">
+                    {w.text}
+                  </p>
+                  <div className="mt-8 flex items-baseline justify-between gap-6 border-t border-foreground/10 pt-4">
+                    <span className="font-serif text-lg md:text-xl">— {w.name}</span>
+                    <span className="eyebrow">{w.date}</span>
                   </div>
-                </div>
-                <div className="text-3xl text-gold leading-none mb-2">“</div>
-                <p className="font-serif italic text-lg md:text-xl leading-snug text-foreground/85">
-                  {w.text}
-                </p>
-              </article>
-            </Reveal>
-          ))}
+                </article>
+              </Reveal>
+            );
+          })}
         </div>
 
         <Reveal delay={200}>
