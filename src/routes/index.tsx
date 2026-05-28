@@ -958,50 +958,48 @@ function Guests() {
 
 function ThankYou() {
   return (
-    <section className="py-28 md:py-44 bg-card/40 relative overflow-hidden">
-      <div className="mx-auto max-w-[1400px] px-5 md:px-10 text-center">
+    <section className="relative h-[100svh] min-h-[640px] w-full overflow-hidden">
+      <img
+        src={thankYou}
+        alt="Финальный кадр свадебного дня"
+        className="absolute inset-0 w-full h-full object-cover anim-ken"
+      />
+      {/* warm cinematic veil */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/15 to-black/60" />
+      <div className="absolute inset-0 grain pointer-events-none" />
+
+      <div className="relative z-10 h-full flex flex-col items-center justify-between py-14 md:py-20 px-6 text-background text-center">
         <Reveal>
-          <p className="eyebrow mb-8">Finale</p>
-        </Reveal>
-        <Reveal delay={100}>
-          <h2 className="display text-[12vw] sm:text-[8vw] md:text-[6.5vw] leading-[0.9]">
-            Спасибо,
-            <br />
-            что были
-            <br />
-            <span className="italic">с нами</span>
-            <span className="text-gold">.</span>
-          </h2>
-        </Reveal>
-        <Reveal delay={250}>
-          <p className="mt-10 max-w-xl mx-auto text-foreground/75 leading-relaxed">
-            Этот день навсегда останется в нашем сердце. Каждый взгляд, каждое
-            объятие — всё благодаря вам.
+          <p className="eyebrow text-background/80" style={{ color: "rgba(255,250,240,0.7)" }}>
+            Finale · Pl. 30
           </p>
         </Reveal>
 
-        <div className="mt-16 grid grid-cols-2 gap-4 md:gap-6 max-w-3xl mx-auto">
-          <Reveal>
-            <img
-              src={finale}
-              alt="Финальный кадр"
-              loading="lazy"
-              className="w-full aspect-[3/4] object-cover"
-            />
-          </Reveal>
+        <div className="flex flex-col items-center gap-10 max-w-3xl">
           <Reveal delay={150}>
-            <img
-              src={walk}
-              alt="Прогулка"
-              loading="lazy"
-              className="w-full aspect-[3/4] object-cover mt-10 md:mt-16"
-            />
+            <span className="block w-12 h-px bg-background/60 mx-auto" />
+          </Reveal>
+          <Reveal delay={200}>
+            <h2 className="display text-5xl sm:text-6xl md:text-[7.5vw] leading-[0.95] text-background">
+              Спасибо,
+              <br />
+              <span className="italic font-extralight">что были с нами</span>
+            </h2>
+          </Reveal>
+          <Reveal delay={350}>
+            <p className="font-serif italic text-lg md:text-2xl text-background/85 max-w-xl leading-relaxed">
+              За каждый взгляд, объятие и тихое слово —
+              этот день останется с нами навсегда.
+            </p>
+          </Reveal>
+          <Reveal delay={500}>
+            <span className="block w-12 h-px bg-background/60 mx-auto" />
           </Reveal>
         </div>
 
-        <Reveal delay={300}>
-          <p className="display italic text-2xl md:text-3xl mt-16 text-foreground/80">
-            — A &amp; D
+        <Reveal delay={600}>
+          <p className="display italic text-2xl md:text-3xl tracking-[0.2em] text-background/90">
+            — A &amp; D —
           </p>
         </Reveal>
       </div>
