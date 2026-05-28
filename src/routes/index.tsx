@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState, type ReactNode, type ElementType } from "react";
+import JSZip from "jszip";
 
 import hero from "@/assets/photos/hero-main.jpg";
 import brideMorning1 from "@/assets/photos/bride-morning-01.jpg";
@@ -31,6 +32,11 @@ import silent2 from "@/assets/photos/silent-02.jpg";
 import silent3 from "@/assets/photos/silent-03.jpg";
 import silent4 from "@/assets/photos/silent-04.jpg";
 import thankYou from "@/assets/photos/thank-you-01.jpg";
+import story1 from "@/assets/photos/story-01.jpg";
+import story2 from "@/assets/photos/story-02.jpg";
+import story3 from "@/assets/photos/story-03.jpg";
+import story4 from "@/assets/photos/story-04.jpg";
+import story5 from "@/assets/photos/story-05.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
