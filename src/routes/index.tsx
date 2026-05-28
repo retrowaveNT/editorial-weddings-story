@@ -604,7 +604,60 @@ function Story() {
 function WeddingDay() {
   const [active, setActive] = useState(stages[0].id);
   const stage = stages.find((s) => s.id === active)!;
-  const [lightbox, setLightbox] = useState<string | null>(null);
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const [downloading, setDownloading] = useState(false);
+
+  const closeLightbox = () => setLightboxIndex(null);
+  const showPrev = () =>
+    setLightboxIndex((i) =>
+      i === null ? i : (i - 1 + stage.images.length) % stage.images.length
+    );
+  const showNext = () =>
+    setLightboxIndex((i) =>
+      i === null ? i : (i + 1) % stage.images.length
+    );
+
+  useEffect(() => {
+    if (lightboxIndex === null) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") closeLightbox();
+      if (e.key === "ArrowLeft") showPrev();
+      if (e.key === "ArrowRight") showNext();
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [lightboxIndex, stage.id]);
+
+  const downloadStage = async () => {
+    if (downloading) return;
+    setDownloading(true);
+    try {
+      const zip = new JSZip();
+      await Promise.all(
+        stage.images.map(async (img, i) => {
+          const res = await fetch(img.src);
+          const blob = await res.blob();
+          const ext = (blob.type.split("/")[1] || "jpg").split("+")[0];
+          zip.file(
+            `${stage.number}-${stage.id}-${String(i + 1).padStart(2, "0")}.${ext}`,
+            blob
+          );
+        })
+      );
+      const out = await zip.generateAsync({ type: "blob" });
+      const url = URL.createObjectURL(out);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `${stage.number}-${stage.title}.zip`;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+    } finally {
+      setDownloading(false);
+    }
+  };
 
   return (
     <section id="day" className="py-24 md:py-36 bg-card/50 relative">
