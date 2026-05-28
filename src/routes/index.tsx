@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState, type ReactNode, type ElementType } from "react";
+import JSZip from "jszip";
 
 import hero from "@/assets/photos/hero-main.jpg";
 import brideMorning1 from "@/assets/photos/bride-morning-01.jpg";
@@ -31,6 +32,11 @@ import silent2 from "@/assets/photos/silent-02.jpg";
 import silent3 from "@/assets/photos/silent-03.jpg";
 import silent4 from "@/assets/photos/silent-04.jpg";
 import thankYou from "@/assets/photos/thank-you-01.jpg";
+import story1 from "@/assets/photos/story-01.jpg";
+import story2 from "@/assets/photos/story-02.jpg";
+import story3 from "@/assets/photos/story-03.jpg";
+import story4 from "@/assets/photos/story-04.jpg";
+import story5 from "@/assets/photos/story-05.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -120,30 +126,35 @@ const storyTimeline = [
     title: "Первая встреча",
     text: "Случайный вечер, который оказался не случайным.",
     glyph: "I",
+    image: story1,
   },
   {
     year: "2020",
     title: "Начало отношений",
     text: "Тихое да, сказанное между строк.",
     glyph: "II",
+    image: story2,
   },
   {
     year: "2022",
     title: "Путешествия",
     text: "Лиссабон, Прага, Амальфи. Мир — наш альбом.",
     glyph: "III",
+    image: story3,
   },
   {
     year: "2025",
     title: "Предложение",
     text: "Зимний вечер. Свеча. Кольцо. Слёзы.",
     glyph: "IV",
+    image: story4,
   },
   {
     year: "2026",
     title: "Наша свадьба",
     text: "День, который мы будем рассказывать всю жизнь.",
     glyph: "V",
+    image: story5,
   },
 ];
 
@@ -376,8 +387,8 @@ function Hero() {
     <section id="top" className="relative pt-[88px]">
       <div className="mx-auto max-w-[1400px] px-5 md:px-10 pt-6 pb-2">
         <div className="flex items-center justify-between text-[10px] uppercase tracking-[0.32em] text-bronze">
-          <span>Vol. I — Issue 01</span>
-          <span className="hidden sm:inline">A Private Edition</span>
+          <span>Том I · Выпуск 01</span>
+          <span className="hidden sm:inline">Частное издание</span>
           <span>2026</span>
         </div>
         <div className="hairline mt-4" />
@@ -442,7 +453,7 @@ function Hero() {
                 className="w-full h-[68vh] md:h-[82vh] object-cover anim-ken"
               />
               <figcaption className="absolute bottom-4 left-4 right-4 flex items-end justify-between text-background mix-blend-difference text-[10px] uppercase tracking-[0.3em]">
-                <span>Pl. 01 — Portrait</span>
+                <span>Кадр 01 · Портрет</span>
                 <span>A &amp; D</span>
               </figcaption>
             </figure>
@@ -451,7 +462,7 @@ function Hero() {
           <Reveal delay={420}>
             <div className="hidden md:flex absolute -left-6 top-10 -rotate-90 origin-top-left items-center gap-3 text-[10px] uppercase tracking-[0.4em] text-bronze">
               <span className="w-10 h-px bg-bronze" />
-              The Wedding Edition
+              Свадебное издание
             </div>
           </Reveal>
         </div>
@@ -460,9 +471,9 @@ function Hero() {
       <div className="mx-auto max-w-[1400px] px-5 md:px-10 mt-10">
         <div className="hairline" />
         <div className="flex items-center justify-between py-4 text-[10px] uppercase tracking-[0.32em] text-foreground/60">
-          <span>Anna &amp; Daniel</span>
-          <span className="hidden md:inline">Photographed by The Studio</span>
-          <span>↓ Scroll</span>
+          <span>Анна и Даниил</span>
+          <span className="hidden md:inline">Фото — студия</span>
+          <span>↓ Листайте</span>
         </div>
       </div>
     </section>
@@ -531,33 +542,50 @@ function Story() {
           </div>
         </div>
 
-        <ol className="relative">
-          <div className="absolute left-[7px] top-2 bottom-2 w-px bg-border md:left-1/2" />
+        <ol className="flex flex-col gap-20 md:gap-32">
           {storyTimeline.map((m, i) => {
             const right = i % 2 === 1;
             return (
               <li
                 key={m.year}
-                className="relative md:grid md:grid-cols-2 md:gap-16 pb-16 md:pb-24 last:pb-0"
+                className="grid md:grid-cols-12 gap-8 md:gap-14 items-center"
               >
-                <span className="absolute left-0 md:left-1/2 top-2 -translate-x-1/2 w-4 h-4 rounded-full border border-bronze bg-background flex items-center justify-center">
-                  <span className="w-1.5 h-1.5 rounded-full bg-gold" />
-                </span>
+                <Reveal
+                  delay={80}
+                  className={`md:col-span-6 ${right ? "md:order-2" : ""}`}
+                >
+                  <figure className="relative overflow-hidden bg-secondary">
+                    <img
+                      src={m.image}
+                      alt={m.title}
+                      loading="lazy"
+                      className="w-full aspect-[4/5] object-cover anim-ken"
+                    />
+                    <figcaption className="absolute bottom-3 left-3 text-[10px] uppercase tracking-[0.3em] text-background mix-blend-difference">
+                      Кадр {m.glyph} · {m.year}
+                    </figcaption>
+                  </figure>
+                </Reveal>
 
                 <div
-                  className={`pl-10 md:pl-0 ${
-                    right ? "md:col-start-2 md:pl-16" : "md:text-right md:pr-16"
+                  className={`md:col-span-5 ${
+                    right
+                      ? "md:order-1 md:col-start-1 md:text-right md:pr-6"
+                      : "md:col-start-8 md:pl-6"
                   }`}
                 >
                   <Reveal delay={i * 80}>
-                    <p className="eyebrow mb-3">
+                    <p className="eyebrow mb-4">
                       <span className="text-foreground/40 mr-3">{m.glyph}</span>
                       {m.year}
                     </p>
-                    <h3 className="display text-4xl md:text-6xl mb-4">
+                    <h3 className="display text-4xl md:text-6xl mb-5 leading-[0.95]">
                       {m.title}
                     </h3>
-                    <p className="text-foreground/70 max-w-sm md:inline-block">
+                    <div
+                      className={`gold-line w-16 mb-6 ${right ? "md:ml-auto" : ""}`}
+                    />
+                    <p className="text-foreground/75 leading-relaxed max-w-md md:inline-block">
                       {m.text}
                     </p>
                   </Reveal>
@@ -576,7 +604,60 @@ function Story() {
 function WeddingDay() {
   const [active, setActive] = useState(stages[0].id);
   const stage = stages.find((s) => s.id === active)!;
-  const [lightbox, setLightbox] = useState<string | null>(null);
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const [downloading, setDownloading] = useState(false);
+
+  const closeLightbox = () => setLightboxIndex(null);
+  const showPrev = () =>
+    setLightboxIndex((i) =>
+      i === null ? i : (i - 1 + stage.images.length) % stage.images.length
+    );
+  const showNext = () =>
+    setLightboxIndex((i) =>
+      i === null ? i : (i + 1) % stage.images.length
+    );
+
+  useEffect(() => {
+    if (lightboxIndex === null) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") closeLightbox();
+      if (e.key === "ArrowLeft") showPrev();
+      if (e.key === "ArrowRight") showNext();
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [lightboxIndex, stage.id]);
+
+  const downloadStage = async () => {
+    if (downloading) return;
+    setDownloading(true);
+    try {
+      const zip = new JSZip();
+      await Promise.all(
+        stage.images.map(async (img, i) => {
+          const res = await fetch(img.src);
+          const blob = await res.blob();
+          const ext = (blob.type.split("/")[1] || "jpg").split("+")[0];
+          zip.file(
+            `${stage.number}-${stage.id}-${String(i + 1).padStart(2, "0")}.${ext}`,
+            blob
+          );
+        })
+      );
+      const out = await zip.generateAsync({ type: "blob" });
+      const url = URL.createObjectURL(out);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `${stage.number}-${stage.title}.zip`;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+    } finally {
+      setDownloading(false);
+    }
+  };
 
   return (
     <section id="day" className="py-24 md:py-36 bg-card/50 relative">
@@ -642,7 +723,19 @@ function WeddingDay() {
             <p className="text-foreground/75 leading-relaxed">
               {stage.description}
             </p>
-            <p className="eyebrow mt-4">{stage.count}</p>
+            <div className="mt-5 flex flex-wrap items-center gap-4">
+              <p className="eyebrow">{stage.count}</p>
+              <button
+                onClick={downloadStage}
+                disabled={downloading}
+                className="inline-flex items-center gap-2 border border-foreground/80 px-5 py-3 text-[10px] uppercase tracking-[0.28em] hover:bg-foreground hover:text-background transition-colors duration-500 disabled:opacity-60"
+              >
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M12 3v13m0 0l-5-5m5 5l5-5M5 21h14" />
+                </svg>
+                {downloading ? "Готовим архив…" : "Скачать фото"}
+              </button>
+            </div>
           </div>
         </div>
 
@@ -660,7 +753,7 @@ function WeddingDay() {
             return (
               <button
                 key={i}
-                onClick={() => setLightbox(img.src)}
+                onClick={() => setLightboxIndex(i)}
                 className={`group relative overflow-hidden bg-secondary ${span}`}
               >
                 <img
@@ -680,23 +773,54 @@ function WeddingDay() {
       </div>
 
       {/* lightbox */}
-      {lightbox && (
+      {lightboxIndex !== null && (
         <div
           className="fixed inset-0 z-50 bg-background/95 backdrop-blur-md flex items-center justify-center p-4 anim-fade"
-          onClick={() => setLightbox(null)}
+          onClick={closeLightbox}
         >
+          <div className="absolute top-6 left-6 right-6 flex items-center justify-between text-[10px] uppercase tracking-[0.3em] text-foreground/80 pointer-events-none">
+            <span>
+              {stage.number} · {stage.title}
+            </span>
+            <span>
+              {String(lightboxIndex + 1).padStart(2, "0")} / {String(stage.images.length).padStart(2, "0")}
+            </span>
+          </div>
+
           <button
             aria-label="Закрыть"
-            className="absolute top-6 right-6 w-10 h-10 flex items-center justify-center text-foreground border border-border"
-            onClick={() => setLightbox(null)}
+            className="absolute top-6 right-6 w-10 h-10 flex items-center justify-center text-foreground border border-border bg-background/70 z-10"
+            onClick={(e) => { e.stopPropagation(); closeLightbox(); }}
           >
             ✕
           </button>
+
+          <button
+            aria-label="Предыдущее фото"
+            onClick={(e) => { e.stopPropagation(); showPrev(); }}
+            className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center text-foreground border border-border bg-background/70 hover:bg-foreground hover:text-background transition-colors"
+          >
+            ‹
+          </button>
+          <button
+            aria-label="Следующее фото"
+            onClick={(e) => { e.stopPropagation(); showNext(); }}
+            className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center text-foreground border border-border bg-background/70 hover:bg-foreground hover:text-background transition-colors"
+          >
+            ›
+          </button>
+
           <img
-            src={lightbox}
-            alt=""
-            className="max-h-[88vh] max-w-[92vw] object-contain shadow-[0_30px_80px_-30px_rgba(0,0,0,0.35)]"
+            key={lightboxIndex}
+            src={stage.images[lightboxIndex].src}
+            alt={stage.images[lightboxIndex].alt}
+            onClick={(e) => e.stopPropagation()}
+            className="max-h-[82vh] max-w-[88vw] object-contain shadow-[0_30px_80px_-30px_rgba(0,0,0,0.35)] anim-fade"
           />
+
+          <p className="absolute bottom-6 left-0 right-0 text-center text-[10px] uppercase tracking-[0.3em] text-foreground/60">
+            Esc — закрыть · ← / → — листать
+          </p>
         </div>
       )}
     </section>
@@ -713,7 +837,7 @@ function FeaturedSpread() {
         <div className="grid md:grid-cols-12 gap-8 md:gap-16 mb-20 md:mb-32">
           <div className="md:col-span-5 md:col-start-2">
             <Reveal>
-              <p className="eyebrow mb-8">Editorial · Pause</p>
+              <p className="eyebrow mb-8">Редакция · Пауза</p>
             </Reveal>
             <Reveal delay={100}>
               <h2 className="display text-5xl md:text-[6.5vw] leading-[0.95]">
@@ -746,7 +870,7 @@ function FeaturedSpread() {
                 loading="lazy"
                 className="w-full aspect-[4/5] object-cover"
               />
-              <figcaption className="eyebrow mt-4">Pl. 02 — Pause</figcaption>
+              <figcaption className="eyebrow mt-4">Кадр 02 · Пауза</figcaption>
             </figure>
           </Reveal>
 
@@ -835,7 +959,7 @@ function Video() {
             </button>
 
             <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between text-background text-[10px] uppercase tracking-[0.3em]">
-              <span>04:32 · The Film</span>
+              <span>04:32 · Фильм</span>
               <span>A &amp; D · 2026</span>
             </div>
           </div>
@@ -848,7 +972,7 @@ function Video() {
           >
             {playing ? "Пауза" : "Смотреть фильм"}
           </button>
-          <span className="eyebrow">Снято на 35mm · Color graded</span>
+          <span className="eyebrow">Снято на 35мм · Цветокоррекция</span>
         </div>
       </div>
     </section>
@@ -958,7 +1082,7 @@ function Guests() {
               <button className="inline-flex items-center gap-3 bg-foreground text-background px-6 py-4 text-[11px] uppercase tracking-[0.3em] hover:bg-bronze transition-colors duration-500">
                 Скачать архив (4.2 GB)
               </button>
-              <span className="eyebrow">Доступно 30 дней</span>
+              <span className="eyebrow">Доступно всегда</span>
             </div>
           </div>
         </Reveal>
@@ -984,7 +1108,7 @@ function ThankYou() {
       <div className="relative z-10 h-full flex flex-col items-center justify-between py-14 md:py-20 px-6 text-background text-center">
         <Reveal>
           <p className="eyebrow text-background/80" style={{ color: "rgba(255,250,240,0.7)" }}>
-            Finale · Pl. 30
+            Финал · Кадр 30
           </p>
         </Reveal>
 
@@ -1023,28 +1147,11 @@ function ThankYou() {
 /* --------------------------------- Footer --------------------------------- */
 
 function Footer() {
-  const Icon = ({ d }: { d: string }) => (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round">
-      <path d={d} />
-    </svg>
-  );
   return (
     <footer className="border-t border-border py-10">
-      <div className="mx-auto max-w-[1400px] px-5 md:px-10 flex flex-col md:flex-row items-center justify-between gap-6">
-        <div className="display text-lg tracking-[0.3em]">A · D</div>
-
-        <div className="flex items-center gap-6 text-foreground/70">
-          <a href="#" aria-label="Instagram" className="hover:text-foreground transition-colors">
-            <Icon d="M3 7.5A4.5 4.5 0 0 1 7.5 3h9A4.5 4.5 0 0 1 21 7.5v9A4.5 4.5 0 0 1 16.5 21h-9A4.5 4.5 0 0 1 3 16.5v-9zM12 8.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zm5-.5h.01" />
-          </a>
-          <a href="#" aria-label="Telegram" className="hover:text-foreground transition-colors">
-            <Icon d="M22 3L2 11l6 2 2 6 4-4 6 5 2-17z" />
-          </a>
-          <a href="#" aria-label="WhatsApp" className="hover:text-foreground transition-colors">
-            <Icon d="M3 21l1.6-4.6A8.5 8.5 0 1 1 21 12.5 8.5 8.5 0 0 1 8.6 19.4L3 21zM8 10c.5 2 2 3.5 4 4l1.5-1.5L16 14c-.5 1.5-2 2-3.5 1.8C9.5 15.3 7 12.5 6.5 9.5 6.3 8 6.8 6.5 8.3 6L10 8.5 8 10z" />
-          </a>
-        </div>
-
+      <div className="mx-auto max-w-[1400px] px-5 md:px-10 flex flex-col md:flex-row items-center justify-between gap-4 text-foreground/70">
+        <div className="display text-lg tracking-[0.3em] text-foreground">A · D</div>
+        <div className="eyebrow">20 августа · 2026</div>
         <div className="eyebrow">Сделано с любовью</div>
       </div>
     </footer>
