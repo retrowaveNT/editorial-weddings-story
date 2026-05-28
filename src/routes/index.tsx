@@ -167,10 +167,10 @@ const stages: Stage[] = [
       "Нежное утро, наполненное волнением и самыми тёплыми моментами.",
     count: "45 фото",
     images: [
-      { src: morning, alt: "Утро невесты", tall: true },
-      { src: bouquet, alt: "Букет невесты" },
-      { src: rings, alt: "Обручальные кольца" },
-      { src: bwPortrait, alt: "Портрет невесты", tall: true },
+      { src: brideMorning1, alt: "Утро невесты", tall: true },
+      { src: brideMorning2, alt: "Деталь" },
+      { src: brideMorning3, alt: "Сборы" },
+      { src: brideMorning4, alt: "Портрет невесты", tall: true },
     ],
   },
   {
@@ -182,9 +182,10 @@ const stages: Stage[] = [
       "Спокойствие, сосредоточенность и едва уловимая улыбка перед самым важным днём.",
     count: "28 фото",
     images: [
-      { src: groom, alt: "Сборы жениха", tall: true },
-      { src: rings, alt: "Кольцо" },
-      { src: bwPortrait, alt: "Чёрно-белый момент", tall: true },
+      { src: groomMorning1, alt: "Сборы жениха", tall: true },
+      { src: groomMorning2, alt: "Деталь костюма" },
+      { src: groomMorning3, alt: "Момент" },
+      { src: groomMorning4, alt: "Портрет", tall: true },
     ],
   },
   {
@@ -196,9 +197,10 @@ const stages: Stage[] = [
       "Слова, которые останутся с нами навсегда. Тишина, заполненная любовью.",
     count: "72 фото",
     images: [
-      { src: ceremony, alt: "Церемония", wide: true },
-      { src: bouquet, alt: "Цветы церемонии" },
-      { src: morning, alt: "Эмоция момента", tall: true },
+      { src: ceremony1, alt: "Церемония", wide: true },
+      { src: ceremony2, alt: "Гости" },
+      { src: ceremony3, alt: "Эмоция", tall: true },
+      { src: ceremony4, alt: "Кольца" },
     ],
   },
   {
@@ -209,8 +211,10 @@ const stages: Stage[] = [
     description: "Закат, поле, ветер в волосах и наш первый общий вечер.",
     count: "56 фото",
     images: [
-      { src: walk, alt: "Прогулка", tall: true },
-      { src: film, alt: "Закат", wide: true },
+      { src: walk1, alt: "Прогулка", tall: true },
+      { src: walk2, alt: "Закат", wide: true },
+      { src: walk3, alt: "Силуэты" },
+      { src: walk4, alt: "Поле", tall: true },
     ],
   },
   {
@@ -222,9 +226,10 @@ const stages: Stage[] = [
       "Слова близких, бокалы шампанского и сотни маленьких поводов улыбаться.",
     count: "94 фото",
     images: [
-      { src: banquet, alt: "Банкет", wide: true },
-      { src: bouquet, alt: "Цветы стола" },
-      { src: rings, alt: "Деталь", tall: true },
+      { src: banquet1, alt: "Банкет", wide: true },
+      { src: banquet2, alt: "Сервировка" },
+      { src: banquet3, alt: "Гости", tall: true },
+      { src: banquet4, alt: "Деталь" },
     ],
   },
   {
@@ -235,8 +240,10 @@ const stages: Stage[] = [
     description: "Первый танец, музыка до утра и наши люди вокруг.",
     count: "118 фото",
     images: [
-      { src: party, alt: "Вечеринка", wide: true },
-      { src: finale, alt: "Под люстрой", tall: true },
+      { src: party1, alt: "Вечеринка", wide: true },
+      { src: party2, alt: "Танцпол", tall: true },
+      { src: party3, alt: "Свет" },
+      { src: party4, alt: "Финал ночи" },
     ],
   },
 ];
