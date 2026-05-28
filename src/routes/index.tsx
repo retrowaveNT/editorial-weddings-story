@@ -472,7 +472,7 @@ function Hero() {
         <div className="hairline" />
         <div className="flex items-center justify-between py-4 text-[10px] uppercase tracking-[0.32em] text-foreground/60">
           <span>Анна и Даниил</span>
-          <span className="hidden md:inline">Фото — The Studio</span>
+          <span className="hidden md:inline">Фото — студия</span>
           <span>↓ Листайте</span>
         </div>
       </div>
