@@ -723,7 +723,19 @@ function WeddingDay() {
             <p className="text-foreground/75 leading-relaxed">
               {stage.description}
             </p>
-            <p className="eyebrow mt-4">{stage.count}</p>
+            <div className="mt-5 flex flex-wrap items-center gap-4">
+              <p className="eyebrow">{stage.count}</p>
+              <button
+                onClick={downloadStage}
+                disabled={downloading}
+                className="inline-flex items-center gap-2 border border-foreground/80 px-5 py-3 text-[10px] uppercase tracking-[0.28em] hover:bg-foreground hover:text-background transition-colors duration-500 disabled:opacity-60"
+              >
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M12 3v13m0 0l-5-5m5 5l5-5M5 21h14" />
+                </svg>
+                {downloading ? "Готовим архив…" : "Скачать фото"}
+              </button>
+            </div>
           </div>
         </div>
 
@@ -741,7 +753,7 @@ function WeddingDay() {
             return (
               <button
                 key={i}
-                onClick={() => setLightbox(img.src)}
+                onClick={() => setLightboxIndex(i)}
                 className={`group relative overflow-hidden bg-secondary ${span}`}
               >
                 <img
@@ -761,23 +773,54 @@ function WeddingDay() {
       </div>
 
       {/* lightbox */}
-      {lightbox && (
+      {lightboxIndex !== null && (
         <div
           className="fixed inset-0 z-50 bg-background/95 backdrop-blur-md flex items-center justify-center p-4 anim-fade"
-          onClick={() => setLightbox(null)}
+          onClick={closeLightbox}
         >
+          <div className="absolute top-6 left-6 right-6 flex items-center justify-between text-[10px] uppercase tracking-[0.3em] text-foreground/80 pointer-events-none">
+            <span>
+              {stage.number} · {stage.title}
+            </span>
+            <span>
+              {String(lightboxIndex + 1).padStart(2, "0")} / {String(stage.images.length).padStart(2, "0")}
+            </span>
+          </div>
+
           <button
             aria-label="Закрыть"
-            className="absolute top-6 right-6 w-10 h-10 flex items-center justify-center text-foreground border border-border"
-            onClick={() => setLightbox(null)}
+            className="absolute top-6 right-6 w-10 h-10 flex items-center justify-center text-foreground border border-border bg-background/70 z-10"
+            onClick={(e) => { e.stopPropagation(); closeLightbox(); }}
           >
             ✕
           </button>
+
+          <button
+            aria-label="Предыдущее фото"
+            onClick={(e) => { e.stopPropagation(); showPrev(); }}
+            className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center text-foreground border border-border bg-background/70 hover:bg-foreground hover:text-background transition-colors"
+          >
+            ‹
+          </button>
+          <button
+            aria-label="Следующее фото"
+            onClick={(e) => { e.stopPropagation(); showNext(); }}
+            className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center text-foreground border border-border bg-background/70 hover:bg-foreground hover:text-background transition-colors"
+          >
+            ›
+          </button>
+
           <img
-            src={lightbox}
-            alt=""
-            className="max-h-[88vh] max-w-[92vw] object-contain shadow-[0_30px_80px_-30px_rgba(0,0,0,0.35)]"
+            key={lightboxIndex}
+            src={stage.images[lightboxIndex].src}
+            alt={stage.images[lightboxIndex].alt}
+            onClick={(e) => e.stopPropagation()}
+            className="max-h-[82vh] max-w-[88vw] object-contain shadow-[0_30px_80px_-30px_rgba(0,0,0,0.35)] anim-fade"
           />
+
+          <p className="absolute bottom-6 left-0 right-0 text-center text-[10px] uppercase tracking-[0.3em] text-foreground/60">
+            Esc — закрыть · ← / → — листать
+          </p>
         </div>
       )}
     </section>
