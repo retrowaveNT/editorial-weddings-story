@@ -542,33 +542,50 @@ function Story() {
           </div>
         </div>
 
-        <ol className="relative">
-          <div className="absolute left-[7px] top-2 bottom-2 w-px bg-border md:left-1/2" />
+        <ol className="flex flex-col gap-20 md:gap-32">
           {storyTimeline.map((m, i) => {
             const right = i % 2 === 1;
             return (
               <li
                 key={m.year}
-                className="relative md:grid md:grid-cols-2 md:gap-16 pb-16 md:pb-24 last:pb-0"
+                className="grid md:grid-cols-12 gap-8 md:gap-14 items-center"
               >
-                <span className="absolute left-0 md:left-1/2 top-2 -translate-x-1/2 w-4 h-4 rounded-full border border-bronze bg-background flex items-center justify-center">
-                  <span className="w-1.5 h-1.5 rounded-full bg-gold" />
-                </span>
+                <Reveal
+                  delay={80}
+                  className={`md:col-span-6 ${right ? "md:order-2" : ""}`}
+                >
+                  <figure className="relative overflow-hidden bg-secondary">
+                    <img
+                      src={m.image}
+                      alt={m.title}
+                      loading="lazy"
+                      className="w-full aspect-[4/5] object-cover anim-ken"
+                    />
+                    <figcaption className="absolute bottom-3 left-3 text-[10px] uppercase tracking-[0.3em] text-background mix-blend-difference">
+                      Кадр {m.glyph} · {m.year}
+                    </figcaption>
+                  </figure>
+                </Reveal>
 
                 <div
-                  className={`pl-10 md:pl-0 ${
-                    right ? "md:col-start-2 md:pl-16" : "md:text-right md:pr-16"
+                  className={`md:col-span-5 ${
+                    right
+                      ? "md:order-1 md:col-start-1 md:text-right md:pr-6"
+                      : "md:col-start-8 md:pl-6"
                   }`}
                 >
                   <Reveal delay={i * 80}>
-                    <p className="eyebrow mb-3">
+                    <p className="eyebrow mb-4">
                       <span className="text-foreground/40 mr-3">{m.glyph}</span>
                       {m.year}
                     </p>
-                    <h3 className="display text-4xl md:text-6xl mb-4">
+                    <h3 className="display text-4xl md:text-6xl mb-5 leading-[0.95]">
                       {m.title}
                     </h3>
-                    <p className="text-foreground/70 max-w-sm md:inline-block">
+                    <div
+                      className={`gold-line w-16 mb-6 ${right ? "md:ml-auto" : ""}`}
+                    />
+                    <p className="text-foreground/75 leading-relaxed max-w-md md:inline-block">
                       {m.text}
                     </p>
                   </Reveal>
