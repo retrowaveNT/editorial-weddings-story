@@ -50,8 +50,7 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: "A & D — Наш день. Наша история" },
       {
         property: "og:description",
-        content:
-          "Эксклюзивная цифровая редакция нашей свадьбы. Бережно собранные моменты.",
+        content: "Эксклюзивная цифровая редакция нашей свадьбы. Бережно собранные моменты.",
       },
       { property: "og:image", content: hero },
     ],
@@ -85,16 +84,16 @@ function Reveal({
           obs.disconnect();
         }
       },
-      { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
+      { threshold: 0.12, rootMargin: "0px 0px -8% 0px" },
     );
     obs.observe(el);
     return () => obs.disconnect();
   }, []);
 
-  const Comp = Tag as any;
+  const Comp = Tag;
   return (
     <Comp
-      ref={ref as any}
+      ref={ref}
       className={className}
       style={{
         opacity: shown ? 1 : 0,
@@ -174,8 +173,7 @@ const stages: Stage[] = [
     number: "01",
     title: "Утро невесты",
     time: "09:00 — 11:00",
-    description:
-      "Нежное утро, наполненное волнением и самыми тёплыми моментами.",
+    description: "Нежное утро, наполненное волнением и самыми тёплыми моментами.",
     count: "45 фото",
     images: [
       { src: brideMorning1, alt: "Утро невесты", tall: true },
@@ -189,8 +187,7 @@ const stages: Stage[] = [
     number: "02",
     title: "Сборы жениха",
     time: "10:00 — 11:30",
-    description:
-      "Спокойствие, сосредоточенность и едва уловимая улыбка перед самым важным днём.",
+    description: "Спокойствие, сосредоточенность и едва уловимая улыбка перед самым важным днём.",
     count: "28 фото",
     images: [
       { src: groomMorning1, alt: "Сборы жениха", tall: true },
@@ -204,8 +201,7 @@ const stages: Stage[] = [
     number: "03",
     title: "Церемония",
     time: "13:00 — 14:30",
-    description:
-      "Слова, которые останутся с нами навсегда. Тишина, заполненная любовью.",
+    description: "Слова, которые останутся с нами навсегда. Тишина, заполненная любовью.",
     count: "72 фото",
     images: [
       { src: ceremony1, alt: "Церемония", wide: true },
@@ -233,8 +229,7 @@ const stages: Stage[] = [
     number: "05",
     title: "Банкет",
     time: "18:00 — 21:00",
-    description:
-      "Слова близких, бокалы шампанского и сотни маленьких поводов улыбаться.",
+    description: "Слова близких, бокалы шампанского и сотни маленьких поводов улыбаться.",
     count: "94 фото",
     images: [
       { src: banquet1, alt: "Банкет", wide: true },
@@ -361,9 +356,7 @@ function TopBar() {
               onClick={() => setOpen(false)}
               className="display text-3xl tracking-tight"
             >
-              <span className="eyebrow mr-3 align-middle">
-                {String(idx + 1).padStart(2, "0")}
-              </span>
+              <span className="eyebrow mr-3 align-middle">{String(idx + 1).padStart(2, "0")}</span>
               {i.label}
             </a>
           ))}
@@ -415,9 +408,8 @@ function Hero() {
           <Reveal delay={260}>
             <div className="mt-10 max-w-md">
               <p className="text-base leading-relaxed text-foreground/75">
-                Спасибо, что были с нами в этот незабываемый день и разделили
-                наше счастье. Эта страница — наш способ сохранить его
-                полностью.
+                Спасибо, что были с нами в этот незабываемый день и разделили наше счастье. Эта
+                страница — наш способ сохранить его полностью.
               </p>
             </div>
           </Reveal>
@@ -450,7 +442,7 @@ function Hero() {
                 alt="A & D — день свадьбы"
                 width={1280}
                 height={1600}
-                className="w-full h-[68vh] md:h-[82vh] object-cover object-[center_30%] anim-ken"
+                className="w-full h-[68vh] md:h-[82vh] object-cover object-[73%_center] md:object-[82%_center] anim-ken"
               />
               <figcaption className="absolute bottom-4 left-4 right-4 flex items-end justify-between text-background mix-blend-difference text-[10px] uppercase tracking-[0.3em]">
                 <span>Кадр 01 · Портрет</span>
@@ -499,10 +491,7 @@ function Marquee() {
     <section aria-hidden className="overflow-hidden border-y border-border/60 py-6 bg-card/40">
       <div className="flex gap-12 whitespace-nowrap animate-[marquee_44s_linear_infinite]">
         {[...items, ...items, ...items].map((w, i) => (
-          <span
-            key={i}
-            className="display text-3xl md:text-5xl italic text-foreground/70"
-          >
+          <span key={i} className="display text-3xl md:text-5xl italic text-foreground/70">
             {w}
             <span className="mx-8 text-gold not-italic">✦</span>
           </span>
@@ -535,8 +524,8 @@ function Story() {
           <div className="md:col-span-4 md:col-start-9">
             <Reveal delay={200}>
               <p className="text-foreground/70 leading-relaxed">
-                Пять остановок, одна траектория. Каждая глава — небольшой
-                фрагмент того, как мы оказались здесь, под одной фамилией.
+                Пять остановок, одна траектория. Каждая глава — небольшой фрагмент того, как мы
+                оказались здесь, под одной фамилией.
               </p>
             </Reveal>
           </div>
@@ -546,14 +535,8 @@ function Story() {
           {storyTimeline.map((m, i) => {
             const right = i % 2 === 1;
             return (
-              <li
-                key={m.year}
-                className="grid md:grid-cols-12 gap-8 md:gap-14 items-center"
-              >
-                <Reveal
-                  delay={80}
-                  className={`md:col-span-6 ${right ? "md:order-2" : ""}`}
-                >
+              <li key={m.year} className="grid md:grid-cols-12 gap-8 md:gap-14 items-center">
+                <Reveal delay={80} className={`md:col-span-6 ${right ? "md:order-2" : ""}`}>
                   <figure className="relative overflow-hidden bg-secondary">
                     <img
                       src={m.image}
@@ -579,12 +562,8 @@ function Story() {
                       <span className="text-foreground/40 mr-3">{m.glyph}</span>
                       {m.year}
                     </p>
-                    <h3 className="display text-4xl md:text-6xl mb-5 leading-[0.95]">
-                      {m.title}
-                    </h3>
-                    <div
-                      className={`gold-line w-16 mb-6 ${right ? "md:ml-auto" : ""}`}
-                    />
+                    <h3 className="display text-4xl md:text-6xl mb-5 leading-[0.95]">{m.title}</h3>
+                    <div className={`gold-line w-16 mb-6 ${right ? "md:ml-auto" : ""}`} />
                     <p className="text-foreground/75 leading-relaxed max-w-md md:inline-block">
                       {m.text}
                     </p>
@@ -609,13 +588,8 @@ function WeddingDay() {
 
   const closeLightbox = () => setLightboxIndex(null);
   const showPrev = () =>
-    setLightboxIndex((i) =>
-      i === null ? i : (i - 1 + stage.images.length) % stage.images.length
-    );
-  const showNext = () =>
-    setLightboxIndex((i) =>
-      i === null ? i : (i + 1) % stage.images.length
-    );
+    setLightboxIndex((i) => (i === null ? i : (i - 1 + stage.images.length) % stage.images.length));
+  const showNext = () => setLightboxIndex((i) => (i === null ? i : (i + 1) % stage.images.length));
 
   useEffect(() => {
     if (lightboxIndex === null) return;
@@ -639,11 +613,8 @@ function WeddingDay() {
           const res = await fetch(img.src);
           const blob = await res.blob();
           const ext = (blob.type.split("/")[1] || "jpg").split("+")[0];
-          zip.file(
-            `${stage.number}-${stage.id}-${String(i + 1).padStart(2, "0")}.${ext}`,
-            blob
-          );
-        })
+          zip.file(`${stage.number}-${stage.id}-${String(i + 1).padStart(2, "0")}.${ext}`, blob);
+        }),
       );
       const out = await zip.generateAsync({ type: "blob" });
       const url = URL.createObjectURL(out);
@@ -677,8 +648,8 @@ function WeddingDay() {
           </div>
           <Reveal delay={200}>
             <p className="max-w-xs text-sm text-foreground/70 leading-relaxed">
-              Шесть актов одного вечера. Перелистывайте между сценами — каждая
-              часть рассказана языком фотографии.
+              Шесть актов одного вечера. Перелистывайте между сценами — каждая часть рассказана
+              языком фотографии.
             </p>
           </Reveal>
         </div>
@@ -714,15 +685,11 @@ function WeddingDay() {
             </div>
           </div>
           <div className="md:col-span-6">
-            <h3 className="display text-4xl md:text-6xl leading-[0.95] mb-3">
-              {stage.title}
-            </h3>
+            <h3 className="display text-4xl md:text-6xl leading-[0.95] mb-3">{stage.title}</h3>
             <p className="eyebrow">{stage.time}</p>
           </div>
           <div className="md:col-span-4 flex flex-col justify-end">
-            <p className="text-foreground/75 leading-relaxed">
-              {stage.description}
-            </p>
+            <p className="text-foreground/75 leading-relaxed">{stage.description}</p>
             <div className="mt-5 flex flex-wrap items-center gap-4">
               <p className="eyebrow">{stage.count}</p>
               <button
@@ -730,7 +697,16 @@ function WeddingDay() {
                 disabled={downloading}
                 className="inline-flex items-center gap-2 border border-foreground/80 px-5 py-3 text-[10px] uppercase tracking-[0.28em] hover:bg-foreground hover:text-background transition-colors duration-500 disabled:opacity-60"
               >
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <svg
+                  width="12"
+                  height="12"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
                   <path d="M12 3v13m0 0l-5-5m5 5l5-5M5 21h14" />
                 </svg>
                 {downloading ? "Готовим архив…" : "Скачать фото"}
@@ -783,28 +759,38 @@ function WeddingDay() {
               {stage.number} · {stage.title}
             </span>
             <span>
-              {String(lightboxIndex + 1).padStart(2, "0")} / {String(stage.images.length).padStart(2, "0")}
+              {String(lightboxIndex + 1).padStart(2, "0")} /{" "}
+              {String(stage.images.length).padStart(2, "0")}
             </span>
           </div>
 
           <button
             aria-label="Закрыть"
             className="absolute top-6 right-6 w-10 h-10 flex items-center justify-center text-foreground border border-border bg-background/70 z-10"
-            onClick={(e) => { e.stopPropagation(); closeLightbox(); }}
+            onClick={(e) => {
+              e.stopPropagation();
+              closeLightbox();
+            }}
           >
             ✕
           </button>
 
           <button
             aria-label="Предыдущее фото"
-            onClick={(e) => { e.stopPropagation(); showPrev(); }}
+            onClick={(e) => {
+              e.stopPropagation();
+              showPrev();
+            }}
             className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center text-foreground border border-border bg-background/70 hover:bg-foreground hover:text-background transition-colors"
           >
             ‹
           </button>
           <button
             aria-label="Следующее фото"
-            onClick={(e) => { e.stopPropagation(); showNext(); }}
+            onClick={(e) => {
+              e.stopPropagation();
+              showNext();
+            }}
             className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center text-foreground border border-border bg-background/70 hover:bg-foreground hover:text-background transition-colors"
           >
             ›
@@ -852,8 +838,7 @@ function FeaturedSpread() {
           <div className="md:col-span-4 md:col-start-9 md:pt-10">
             <Reveal delay={200}>
               <p className="font-serif italic text-xl md:text-2xl leading-[1.5] text-foreground/75">
-                Между официальными снимками всегда есть взгляд,
-                которого никто не заказывал.
+                Между официальными снимками всегда есть взгляд, которого никто не заказывал.
               </p>
               <div className="gold-line mt-10 w-16" />
             </Reveal>
@@ -987,7 +972,9 @@ function Wishes() {
       <div className="mx-auto max-w-[1400px] px-5 md:px-10">
         <div className="grid md:grid-cols-12 gap-6 mb-14 items-end">
           <div className="md:col-span-7">
-            <Reveal><p className="eyebrow mb-6">Глава IV</p></Reveal>
+            <Reveal>
+              <p className="eyebrow mb-6">Глава IV</p>
+            </Reveal>
             <Reveal delay={100}>
               <h2 className="display text-5xl md:text-[7vw] leading-[0.9]">
                 Пожелания
@@ -999,8 +986,8 @@ function Wishes() {
           <div className="md:col-span-4 md:col-start-9">
             <Reveal delay={200}>
               <p className="text-foreground/70 leading-relaxed">
-                Те самые слова, которые мы хотим перечитывать снова. Спасибо
-                каждому, кто оставил здесь след.
+                Те самые слова, которые мы хотим перечитывать снова. Спасибо каждому, кто оставил
+                здесь след.
               </p>
             </Reveal>
           </div>
@@ -1014,20 +1001,22 @@ function Wishes() {
               "md:col-span-5 md:col-start-2 md:rotate-[0.4deg] md:-mt-6",
               "md:col-span-6 md:col-start-7 md:-rotate-[0.7deg] md:mt-10",
             ];
-            const tones = [
-              "bg-[#FBF6EE]",
-              "bg-[#F4ECDF]",
-              "bg-[#F8F2E8]",
-              "bg-[#F1E8D8]",
-            ];
+            const tones = ["bg-[#FBF6EE]", "bg-[#F4ECDF]", "bg-[#F8F2E8]", "bg-[#F1E8D8]"];
             return (
               <Reveal key={w.name} delay={i * 110} className={layouts[i % layouts.length]}>
                 <article
                   className={`relative ${tones[i % tones.length]} p-8 md:p-12 transition-transform duration-700 ease-out hover:rotate-0 hover:-translate-y-1 shadow-[0_30px_60px_-40px_rgba(60,40,20,0.25)]`}
-                  style={{ boxShadow: "0 1px 0 rgba(0,0,0,0.04), 0 30px 60px -40px rgba(60,40,20,0.25)" }}
+                  style={{
+                    boxShadow: "0 1px 0 rgba(0,0,0,0.04), 0 30px 60px -40px rgba(60,40,20,0.25)",
+                  }}
                 >
-                  <div className="absolute -top-3 left-8 w-16 h-3 bg-foreground/10 rotate-[-2deg]" aria-hidden />
-                  <div className="text-5xl md:text-6xl font-serif text-gold leading-none mb-3 -ml-1">“</div>
+                  <div
+                    className="absolute -top-3 left-8 w-16 h-3 bg-foreground/10 rotate-[-2deg]"
+                    aria-hidden
+                  />
+                  <div className="text-5xl md:text-6xl font-serif text-gold leading-none mb-3 -ml-1">
+                    “
+                  </div>
                   <p className="font-serif italic text-xl md:text-2xl leading-[1.45] text-foreground/85">
                     {w.text}
                   </p>
@@ -1068,19 +1057,23 @@ function Guests() {
           <div className="border border-border bg-card/60 p-8 md:p-14 grid md:grid-cols-12 gap-8 items-center">
             <div className="md:col-span-2 flex md:justify-center">
               <span className="w-14 h-14 rounded-full border border-bronze flex items-center justify-center text-bronze">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.2"
+                >
                   <path d="M12 3v13m0 0l-5-5m5 5l5-5M5 21h14" />
                 </svg>
               </span>
             </div>
             <div className="md:col-span-6">
               <p className="eyebrow mb-3">Для гостей</p>
-              <h3 className="display text-3xl md:text-4xl mb-3">
-                Все фото в высоком качестве
-              </h3>
+              <h3 className="display text-3xl md:text-4xl mb-3">Все фото в высоком качестве</h3>
               <p className="text-foreground/70 leading-relaxed">
-                Здесь вы можете скачать все фотографии с нашего дня одним
-                архивом.
+                Здесь вы можете скачать все фотографии с нашего дня одним архивом.
               </p>
             </div>
             <div className="md:col-span-4 flex flex-col items-start md:items-end gap-3">
@@ -1130,8 +1123,7 @@ function ThankYou() {
           </Reveal>
           <Reveal delay={350}>
             <p className="font-serif italic text-lg md:text-2xl text-background/85 max-w-xl leading-relaxed">
-              За каждый взгляд, объятие и тихое слово —
-              этот день останется с нами навсегда.
+              За каждый взгляд, объятие и тихое слово — этот день останется с нами навсегда.
             </p>
           </Reveal>
           <Reveal delay={500}>
