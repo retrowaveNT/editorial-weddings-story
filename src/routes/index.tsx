@@ -1,18 +1,36 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState, type ReactNode, type ElementType } from "react";
 
-import hero from "@/assets/hero.jpg";
-import morning from "@/assets/morning.jpg";
-import groom from "@/assets/groom.jpg";
-import ceremony from "@/assets/ceremony.jpg";
-import walk from "@/assets/walk.jpg";
-import banquet from "@/assets/banquet.jpg";
-import party from "@/assets/party.jpg";
-import rings from "@/assets/rings.jpg";
-import bouquet from "@/assets/bouquet.jpg";
-import bwPortrait from "@/assets/bw-portrait.jpg";
-import film from "@/assets/film.jpg";
-import finale from "@/assets/finale.jpg";
+import hero from "@/assets/photos/hero-main.jpg";
+import brideMorning1 from "@/assets/photos/bride-morning-01.jpg";
+import brideMorning2 from "@/assets/photos/bride-morning-02.jpg";
+import brideMorning3 from "@/assets/photos/bride-morning-03.jpg";
+import brideMorning4 from "@/assets/photos/bride-morning-04.jpg";
+import groomMorning1 from "@/assets/photos/groom-morning-01.jpg";
+import groomMorning2 from "@/assets/photos/groom-morning-02.jpg";
+import groomMorning3 from "@/assets/photos/groom-morning-03.jpg";
+import groomMorning4 from "@/assets/photos/groom-morning-04.jpg";
+import ceremony1 from "@/assets/photos/ceremony-01.jpg";
+import ceremony2 from "@/assets/photos/ceremony-02.jpg";
+import ceremony3 from "@/assets/photos/ceremony-03.jpg";
+import ceremony4 from "@/assets/photos/ceremony-04.jpg";
+import walk1 from "@/assets/photos/walk-01.jpg";
+import walk2 from "@/assets/photos/walk-02.jpg";
+import walk3 from "@/assets/photos/walk-03.jpg";
+import walk4 from "@/assets/photos/walk-04.jpg";
+import banquet1 from "@/assets/photos/banquet-01.jpg";
+import banquet2 from "@/assets/photos/banquet-02.jpg";
+import banquet3 from "@/assets/photos/banquet-03.jpg";
+import banquet4 from "@/assets/photos/banquet-04.jpg";
+import party1 from "@/assets/photos/party-01.jpg";
+import party2 from "@/assets/photos/party-02.jpg";
+import party3 from "@/assets/photos/party-03.jpg";
+import party4 from "@/assets/photos/party-04.jpg";
+import silent1 from "@/assets/photos/silent-01.jpg";
+import silent2 from "@/assets/photos/silent-02.jpg";
+import silent3 from "@/assets/photos/silent-03.jpg";
+import silent4 from "@/assets/photos/silent-04.jpg";
+import thankYou from "@/assets/photos/thank-you-01.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
